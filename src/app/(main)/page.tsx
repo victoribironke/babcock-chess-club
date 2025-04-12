@@ -1,6 +1,9 @@
 import Homepage from "@/components/main/home";
 import { BASE_URL } from "@/constants/constants";
+import { getPlayersRatings } from "@/lib/requests";
 import { Metadata } from "next";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Babcock Chess Club",
@@ -29,8 +32,12 @@ export const metadata: Metadata = {
   },
 };
 
-const Home = () => {
-  return <Homepage />;
+const Home = async () => {
+  const { data, error } = await getPlayersRatings();
+
+  if (error) return <></>;
+
+  return <Homepage data={data!} />;
 };
 
 export default Home;

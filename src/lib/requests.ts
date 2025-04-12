@@ -1,3 +1,7 @@
+import { db } from "@/services/firebase";
+import { Ratings } from "@/types/general";
+import { doc, getDoc } from "firebase/firestore";
+
 export const getChesscomRatings = async (username: string) => {
   try {
     const req = await fetch(
@@ -28,5 +32,18 @@ export const getChesscomRatings = async (username: string) => {
       },
       error: e,
     };
+  }
+};
+
+export const getPlayersRatings = async () => {
+  try {
+    const chessComData = (
+      await getDoc(doc(db, "ratings", "chesscom"))
+    ).data() as Ratings;
+
+    return { data: chessComData, error: null };
+  } catch (e) {
+    console.error(e);
+    return { data: null, error: "A server error occured." };
   }
 };
