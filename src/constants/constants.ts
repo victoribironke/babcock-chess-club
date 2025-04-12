@@ -9,4 +9,4 @@ export const PAGES = {
   home: "/",
 };
 
-export const PLAYERS = ["boy_victor", "charloyt"];
+export const PLAYERS = ["boy_victor"];
