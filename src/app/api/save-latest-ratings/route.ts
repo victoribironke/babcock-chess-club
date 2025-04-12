@@ -19,6 +19,7 @@ export const GET = async () => {
 
     await setDoc(doc(db, "ratings", "chesscom"), {
       ratings: chessComData.map((d) => d.data),
+      updatedAt: new Date().toISOString(),
     });
 
     return NextResponse.json({
