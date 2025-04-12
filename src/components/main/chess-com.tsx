@@ -25,8 +25,8 @@ const ChessCom = ({ stats }: { stats: FullStats }) => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {stats.rapid.map((s) => (
-                <TableRow>
+              {stats.rapid.map((s, i) => (
+                <TableRow key={i}>
                   <TableCell className="font-medium whitespace-nowrap pl-4">
                     {s.username}
                   </TableCell>
@@ -52,8 +52,8 @@ const ChessCom = ({ stats }: { stats: FullStats }) => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {stats.bullet.map((s) => (
-                <TableRow>
+              {stats.bullet.map((s, i) => (
+                <TableRow key={i}>
                   <TableCell className="font-medium whitespace-nowrap pl-4">
                     {s.username}
                   </TableCell>
@@ -79,8 +79,8 @@ const ChessCom = ({ stats }: { stats: FullStats }) => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {stats.blitz.map((s) => (
-                <TableRow>
+              {stats.blitz.map((s, i) => (
+                <TableRow key={i}>
                   <TableCell className="font-medium whitespace-nowrap pl-4">
                     {s.username}
                   </TableCell>
