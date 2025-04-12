@@ -8,3 +8,5 @@ export const THEME_KEY = "babcock-chess-club-theme";
 export const PAGES = {
   home: "/",
 };
+
+export const PLAYERS = ["boy_victor", "charloyt"];

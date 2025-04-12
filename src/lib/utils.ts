@@ -15,4 +15,5 @@ export const formatDateTime = (dateString: string | Date) => {
     hour12: true,
   });
 };
+
 export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
