@@ -24,9 +24,7 @@ const Lichess = ({ stats }: { stats: FullStats }) => {
               <TableRow>
                 <TableHead className="pl-4">#</TableHead>
                 <TableHead>Username</TableHead>
-                <TableHead className="whitespace-nowrap">
-                  Games played
-                </TableHead>
+                <TableHead>Games</TableHead>
                 <TableHead>Rating</TableHead>
               </TableRow>
             </TableHeader>
@@ -63,9 +61,7 @@ const Lichess = ({ stats }: { stats: FullStats }) => {
               <TableRow>
                 <TableHead className="pl-4">#</TableHead>
                 <TableHead>Username</TableHead>
-                <TableHead className="whitespace-nowrap">
-                  Games played
-                </TableHead>
+                <TableHead>Games</TableHead>
                 <TableHead>Rating</TableHead>
               </TableRow>
             </TableHeader>
@@ -102,9 +98,7 @@ const Lichess = ({ stats }: { stats: FullStats }) => {
               <TableRow>
                 <TableHead className="pl-4">#</TableHead>
                 <TableHead>Username</TableHead>
-                <TableHead className="whitespace-nowrap">
-                  Games played
-                </TableHead>
+                <TableHead>Games</TableHead>
                 <TableHead>Rating</TableHead>
               </TableRow>
             </TableHeader>
