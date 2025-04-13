@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/table";
 import { formatNumber } from "@/lib/utils";
 import { FullStats } from "@/types/general";
+import Link from "next/link";
 
 const Lichess = ({ stats }: { stats: FullStats }) => {
   return (
@@ -31,7 +32,13 @@ const Lichess = ({ stats }: { stats: FullStats }) => {
                 <TableRow key={i}>
                   <TableCell className="pl-4">{i + 1}</TableCell>
                   <TableCell className="font-medium whitespace-nowrap">
-                    {s.username}
+                    <Link
+                      href={`https://lichess.org/@/${s.username}/perf/rapid`}
+                      target="_blank"
+                      className="cursor-pointer hover:underline"
+                    >
+                      {s.username}
+                    </Link>
                   </TableCell>
                   <TableCell>{formatNumber(s.rating)}</TableCell>
                 </TableRow>
@@ -60,7 +67,13 @@ const Lichess = ({ stats }: { stats: FullStats }) => {
                 <TableRow key={i}>
                   <TableCell className="pl-4">{i + 1}</TableCell>
                   <TableCell className="font-medium whitespace-nowrap">
-                    {s.username}
+                    <Link
+                      href={`https://lichess.org/@/${s.username}/perf/bullet`}
+                      target="_blank"
+                      className="cursor-pointer hover:underline"
+                    >
+                      {s.username}
+                    </Link>
                   </TableCell>
                   <TableCell>{formatNumber(s.rating)}</TableCell>
                 </TableRow>
@@ -89,7 +102,13 @@ const Lichess = ({ stats }: { stats: FullStats }) => {
                 <TableRow key={i}>
                   <TableCell className="pl-4">{i + 1}</TableCell>
                   <TableCell className="font-medium whitespace-nowrap">
-                    {s.username}
+                    <Link
+                      href={`https://lichess.org/@/${s.username}/perf/blitz`}
+                      target="_blank"
+                      className="cursor-pointer hover:underline"
+                    >
+                      {s.username}
+                    </Link>
                   </TableCell>
                   <TableCell>{formatNumber(s.rating)}</TableCell>
                 </TableRow>
