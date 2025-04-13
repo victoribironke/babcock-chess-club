@@ -1,4 +1,4 @@
-import { Ratings } from "@/types/general";
+import { FullStats, Ratings } from "@/types/general";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ChessCom from "./chess-com";
 import { formatDateTime } from "@/lib/utils";
@@ -11,59 +11,73 @@ const Home = ({
   chesscom: Ratings;
   lichess: Ratings;
 }) => {
-  const chessComStats = {
-    rapid: chesscom.ratings
-      .map((r) => ({
-        username: r.username,
-        rating: r.ratings.find((a) => a.title === "Rapid")?.rating || 0,
-        played: r.ratings.find((a) => a.title === "Rapid")?.played || 0,
-      }))
-      .filter((p) => p.played >= 10)
-      .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
-    bullet: chesscom.ratings
-      .map((r) => ({
-        username: r.username,
-        rating: r.ratings.find((a) => a.title === "Bullet")?.rating || 0,
-        played: r.ratings.find((a) => a.title === "Bullet")?.played || 0,
-      }))
-      .filter((p) => p.played >= 10)
-      .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
-    blitz: chesscom.ratings
-      .map((r) => ({
-        username: r.username,
-        rating: r.ratings.find((a) => a.title === "Blitz")?.rating || 0,
-        played: r.ratings.find((a) => a.title === "Blitz")?.played || 0,
-      }))
-      .filter((p) => p.played >= 10)
-      .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
+  const chessComStats: FullStats = {
+    rapid: [],
+    bullet: [],
+    blitz: [],
   };
 
-  const lichessStats = {
-    rapid: lichess.ratings
-      .map((r) => ({
-        username: r.username,
-        rating: r.ratings.find((a) => a.title === "Rapid")?.rating || 0,
-        played: r.ratings.find((a) => a.title === "Rapid")?.played || 0,
-      }))
-      .filter((p) => p.played >= 10)
-      .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
-    bullet: lichess.ratings
-      .map((r) => ({
-        username: r.username,
-        rating: r.ratings.find((a) => a.title === "Bullet")?.rating || 0,
-        played: r.ratings.find((a) => a.title === "Bullet")?.played || 0,
-      }))
-      .filter((p) => p.played >= 10)
-      .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
-    blitz: lichess.ratings
-      .map((r) => ({
-        username: r.username,
-        rating: r.ratings.find((a) => a.title === "Blitz")?.rating || 0,
-        played: r.ratings.find((a) => a.title === "Blitz")?.played || 0,
-      }))
-      .filter((p) => p.played >= 10)
-      .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
+  const lichessStats: FullStats = {
+    rapid: [],
+    bullet: [],
+    blitz: [],
   };
+
+  for (let i = 0; i < chesscom.ratings.length; i++) {
+    const player_stats = chesscom.ratings[i];
+
+    chessComStats.rapid.push({
+      username: player_stats.username,
+      rating:
+        player_stats.ratings.find((a) => a.title === "Rapid")?.rating || 0,
+      played:
+        player_stats.ratings.find((a) => a.title === "Rapid")?.played || 0,
+    });
+
+    chessComStats.bullet.push({
+      username: player_stats.username,
+      rating:
+        player_stats.ratings.find((a) => a.title === "Bullet")?.rating || 0,
+      played:
+        player_stats.ratings.find((a) => a.title === "Bullet")?.played || 0,
+    });
+
+    chessComStats.blitz.push({
+      username: player_stats.username,
+      rating:
+        player_stats.ratings.find((a) => a.title === "Blitz")?.rating || 0,
+      played:
+        player_stats.ratings.find((a) => a.title === "Blitz")?.played || 0,
+    });
+  }
+
+  for (let i = 0; i < lichess.ratings.length; i++) {
+    const player_stats = lichess.ratings[i];
+
+    lichessStats.rapid.push({
+      username: player_stats.username,
+      rating:
+        player_stats.ratings.find((a) => a.title === "Rapid")?.rating || 0,
+      played:
+        player_stats.ratings.find((a) => a.title === "Rapid")?.played || 0,
+    });
+
+    lichessStats.bullet.push({
+      username: player_stats.username,
+      rating:
+        player_stats.ratings.find((a) => a.title === "Bullet")?.rating || 0,
+      played:
+        player_stats.ratings.find((a) => a.title === "Bullet")?.played || 0,
+    });
+
+    lichessStats.blitz.push({
+      username: player_stats.username,
+      rating:
+        player_stats.ratings.find((a) => a.title === "Blitz")?.rating || 0,
+      played:
+        player_stats.ratings.find((a) => a.title === "Blitz")?.played || 0,
+    });
+  }
 
   return (
     <section className="w-full max-w-7xl flex flex-col gap-8">

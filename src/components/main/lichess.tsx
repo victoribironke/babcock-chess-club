@@ -29,22 +29,25 @@ const Lichess = ({ stats }: { stats: FullStats }) => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {stats.rapid.map((s, i) => (
-                <TableRow key={i}>
-                  <TableCell className="pl-4">{i + 1}</TableCell>
-                  <TableCell className="font-medium whitespace-nowrap">
-                    <Link
-                      href={`https://lichess.org/@/${s.username}/perf/rapid`}
-                      target="_blank"
-                      className="cursor-pointer hover:underline"
-                    >
-                      {s.username}
-                    </Link>
-                  </TableCell>
-                  <TableCell>{formatNumber(s.played)}</TableCell>
-                  <TableCell>{formatNumber(s.rating)}</TableCell>
-                </TableRow>
-              ))}
+              {stats.rapid
+                .filter((p) => p.played >= 10)
+                .sort((a, b) => (a.rating < b.rating ? 1 : -1))
+                .map((s, i) => (
+                  <TableRow key={i}>
+                    <TableCell className="pl-4">{i + 1}</TableCell>
+                    <TableCell className="font-medium whitespace-nowrap">
+                      <Link
+                        href={`https://lichess.org/@/${s.username}/perf/rapid`}
+                        target="_blank"
+                        className="cursor-pointer hover:underline"
+                      >
+                        {s.username}
+                      </Link>
+                    </TableCell>
+                    <TableCell>{formatNumber(s.played)}</TableCell>
+                    <TableCell>{formatNumber(s.rating)}</TableCell>
+                  </TableRow>
+                ))}
             </TableBody>
           </Table>
         </div>
@@ -66,22 +69,25 @@ const Lichess = ({ stats }: { stats: FullStats }) => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {stats.bullet.map((s, i) => (
-                <TableRow key={i}>
-                  <TableCell className="pl-4">{i + 1}</TableCell>
-                  <TableCell className="font-medium whitespace-nowrap">
-                    <Link
-                      href={`https://lichess.org/@/${s.username}/perf/bullet`}
-                      target="_blank"
-                      className="cursor-pointer hover:underline"
-                    >
-                      {s.username}
-                    </Link>
-                  </TableCell>
-                  <TableCell>{formatNumber(s.played)}</TableCell>
-                  <TableCell>{formatNumber(s.rating)}</TableCell>
-                </TableRow>
-              ))}
+              {stats.bullet
+                .filter((p) => p.played >= 10)
+                .sort((a, b) => (a.rating < b.rating ? 1 : -1))
+                .map((s, i) => (
+                  <TableRow key={i}>
+                    <TableCell className="pl-4">{i + 1}</TableCell>
+                    <TableCell className="font-medium whitespace-nowrap">
+                      <Link
+                        href={`https://lichess.org/@/${s.username}/perf/bullet`}
+                        target="_blank"
+                        className="cursor-pointer hover:underline"
+                      >
+                        {s.username}
+                      </Link>
+                    </TableCell>
+                    <TableCell>{formatNumber(s.played)}</TableCell>
+                    <TableCell>{formatNumber(s.rating)}</TableCell>
+                  </TableRow>
+                ))}
             </TableBody>
           </Table>
         </div>
@@ -103,22 +109,25 @@ const Lichess = ({ stats }: { stats: FullStats }) => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {stats.blitz.map((s, i) => (
-                <TableRow key={i}>
-                  <TableCell className="pl-4">{i + 1}</TableCell>
-                  <TableCell className="font-medium whitespace-nowrap">
-                    <Link
-                      href={`https://lichess.org/@/${s.username}/perf/blitz`}
-                      target="_blank"
-                      className="cursor-pointer hover:underline"
-                    >
-                      {s.username}
-                    </Link>
-                  </TableCell>
-                  <TableCell>{formatNumber(s.played)}</TableCell>
-                  <TableCell>{formatNumber(s.rating)}</TableCell>
-                </TableRow>
-              ))}
+              {stats.blitz
+                .filter((p) => p.played >= 10)
+                .sort((a, b) => (a.rating < b.rating ? 1 : -1))
+                .map((s, i) => (
+                  <TableRow key={i}>
+                    <TableCell className="pl-4">{i + 1}</TableCell>
+                    <TableCell className="font-medium whitespace-nowrap">
+                      <Link
+                        href={`https://lichess.org/@/${s.username}/perf/blitz`}
+                        target="_blank"
+                        className="cursor-pointer hover:underline"
+                      >
+                        {s.username}
+                      </Link>
+                    </TableCell>
+                    <TableCell>{formatNumber(s.played)}</TableCell>
+                    <TableCell>{formatNumber(s.rating)}</TableCell>
+                  </TableRow>
+                ))}
             </TableBody>
           </Table>
         </div>
