@@ -24,6 +24,9 @@ const Lichess = ({ stats }: { stats: FullStats }) => {
               <TableRow>
                 <TableHead className="pl-4">#</TableHead>
                 <TableHead>Username</TableHead>
+                <TableHead className="whitespace-nowrap">
+                  Games played
+                </TableHead>
                 <TableHead>Rating</TableHead>
               </TableRow>
             </TableHeader>
@@ -40,6 +43,7 @@ const Lichess = ({ stats }: { stats: FullStats }) => {
                       {s.username}
                     </Link>
                   </TableCell>
+                  <TableCell>{formatNumber(s.played)}</TableCell>
                   <TableCell>{formatNumber(s.rating)}</TableCell>
                 </TableRow>
               ))}
@@ -59,6 +63,9 @@ const Lichess = ({ stats }: { stats: FullStats }) => {
               <TableRow>
                 <TableHead className="pl-4">#</TableHead>
                 <TableHead>Username</TableHead>
+                <TableHead className="whitespace-nowrap">
+                  Games played
+                </TableHead>
                 <TableHead>Rating</TableHead>
               </TableRow>
             </TableHeader>
@@ -75,6 +82,7 @@ const Lichess = ({ stats }: { stats: FullStats }) => {
                       {s.username}
                     </Link>
                   </TableCell>
+                  <TableCell>{formatNumber(s.played)}</TableCell>
                   <TableCell>{formatNumber(s.rating)}</TableCell>
                 </TableRow>
               ))}
@@ -94,6 +102,9 @@ const Lichess = ({ stats }: { stats: FullStats }) => {
               <TableRow>
                 <TableHead className="pl-4">#</TableHead>
                 <TableHead>Username</TableHead>
+                <TableHead className="whitespace-nowrap">
+                  Games played
+                </TableHead>
                 <TableHead>Rating</TableHead>
               </TableRow>
             </TableHeader>
@@ -110,6 +121,7 @@ const Lichess = ({ stats }: { stats: FullStats }) => {
                       {s.username}
                     </Link>
                   </TableCell>
+                  <TableCell>{formatNumber(s.played)}</TableCell>
                   <TableCell>{formatNumber(s.rating)}</TableCell>
                 </TableRow>
               ))}

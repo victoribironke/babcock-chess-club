@@ -16,18 +16,21 @@ const Home = ({
       .map((r) => ({
         username: r.username,
         rating: r.ratings.find((a) => a.title === "Rapid")?.rating || 0,
+        played: r.ratings.find((a) => a.title === "Rapid")?.played || 0,
       }))
       .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
     bullet: chesscom.ratings
       .map((r) => ({
         username: r.username,
         rating: r.ratings.find((a) => a.title === "Bullet")?.rating || 0,
+        played: r.ratings.find((a) => a.title === "Bullet")?.played || 0,
       }))
       .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
     blitz: chesscom.ratings
       .map((r) => ({
         username: r.username,
         rating: r.ratings.find((a) => a.title === "Blitz")?.rating || 0,
+        played: r.ratings.find((a) => a.title === "Blitz")?.played || 0,
       }))
       .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
   };
@@ -37,24 +40,27 @@ const Home = ({
       .map((r) => ({
         username: r.username,
         rating: r.ratings.find((a) => a.title === "Rapid")?.rating || 0,
+        played: r.ratings.find((a) => a.title === "Rapid")?.played || 0,
       }))
       .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
     bullet: lichess.ratings
       .map((r) => ({
         username: r.username,
         rating: r.ratings.find((a) => a.title === "Bullet")?.rating || 0,
+        played: r.ratings.find((a) => a.title === "Bullet")?.played || 0,
       }))
       .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
     blitz: lichess.ratings
       .map((r) => ({
         username: r.username,
         rating: r.ratings.find((a) => a.title === "Blitz")?.rating || 0,
+        played: r.ratings.find((a) => a.title === "Blitz")?.played || 0,
       }))
       .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
   };
 
   return (
-    <section className="w-full max-w-5xl flex flex-col gap-8">
+    <section className="w-full max-w-7xl flex flex-col gap-8">
       <h1 className="font-semibold text-xl md:text-2xl lg:text-3xl w-full text-center">
         Leaderboard
       </h1>
