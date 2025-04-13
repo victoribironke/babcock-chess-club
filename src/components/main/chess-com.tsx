@@ -6,6 +6,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { formatNumber } from "@/lib/utils";
 import { FullStats } from "@/types/general";
 
 const ChessCom = ({ stats }: { stats: FullStats }) => {
@@ -30,7 +31,7 @@ const ChessCom = ({ stats }: { stats: FullStats }) => {
                   <TableCell className="font-medium whitespace-nowrap pl-4">
                     {s.username}
                   </TableCell>
-                  <TableCell>{s.rating}</TableCell>
+                  <TableCell>{formatNumber(s.rating)}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -57,7 +58,7 @@ const ChessCom = ({ stats }: { stats: FullStats }) => {
                   <TableCell className="font-medium whitespace-nowrap pl-4">
                     {s.username}
                   </TableCell>
-                  <TableCell>{s.rating}</TableCell>
+                  <TableCell>{formatNumber(s.rating)}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -84,7 +85,7 @@ const ChessCom = ({ stats }: { stats: FullStats }) => {
                   <TableCell className="font-medium whitespace-nowrap pl-4">
                     {s.username}
                   </TableCell>
-                  <TableCell>{s.rating}</TableCell>
+                  <TableCell>{formatNumber(s.rating)}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

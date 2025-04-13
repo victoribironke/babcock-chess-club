@@ -17,3 +17,5 @@ export const formatDateTime = (dateString: string | Date) => {
 };
 
 export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
+
+export const formatNumber = (n: number) => new Intl.NumberFormat().format(n);
