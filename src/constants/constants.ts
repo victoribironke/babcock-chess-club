@@ -12,3 +12,7 @@ export const PAGES = {
 export const CHESS_COM_PLAYERS = Array.from(
   new Set(["boy_victor"].map((p) => p.toLowerCase().trim()))
 );
+
+export const LICHESS_PLAYERS = Array.from(
+  new Set(["boy_victor"].map((p) => p.toLowerCase().trim()))
+);
