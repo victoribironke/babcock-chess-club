@@ -18,6 +18,7 @@ const Home = ({
         rating: r.ratings.find((a) => a.title === "Rapid")?.rating || 0,
         played: r.ratings.find((a) => a.title === "Rapid")?.played || 0,
       }))
+      .filter((p) => p.played >= 10)
       .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
     bullet: chesscom.ratings
       .map((r) => ({
@@ -25,6 +26,7 @@ const Home = ({
         rating: r.ratings.find((a) => a.title === "Bullet")?.rating || 0,
         played: r.ratings.find((a) => a.title === "Bullet")?.played || 0,
       }))
+      .filter((p) => p.played >= 10)
       .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
     blitz: chesscom.ratings
       .map((r) => ({
@@ -32,6 +34,7 @@ const Home = ({
         rating: r.ratings.find((a) => a.title === "Blitz")?.rating || 0,
         played: r.ratings.find((a) => a.title === "Blitz")?.played || 0,
       }))
+      .filter((p) => p.played >= 10)
       .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
   };
 
@@ -42,6 +45,7 @@ const Home = ({
         rating: r.ratings.find((a) => a.title === "Rapid")?.rating || 0,
         played: r.ratings.find((a) => a.title === "Rapid")?.played || 0,
       }))
+      .filter((p) => p.played >= 10)
       .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
     bullet: lichess.ratings
       .map((r) => ({
@@ -49,6 +53,7 @@ const Home = ({
         rating: r.ratings.find((a) => a.title === "Bullet")?.rating || 0,
         played: r.ratings.find((a) => a.title === "Bullet")?.played || 0,
       }))
+      .filter((p) => p.played >= 10)
       .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
     blitz: lichess.ratings
       .map((r) => ({
@@ -56,6 +61,7 @@ const Home = ({
         rating: r.ratings.find((a) => a.title === "Blitz")?.rating || 0,
         played: r.ratings.find((a) => a.title === "Blitz")?.played || 0,
       }))
+      .filter((p) => p.played >= 10)
       .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
   };
 
