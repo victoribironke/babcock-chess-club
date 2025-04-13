@@ -9,4 +9,6 @@ export const PAGES = {
   home: "/",
 };
 
-export const PLAYERS = ["boy_victor"];
+export const CHESS_COM_PLAYERS = Array.from(
+  new Set(["boy_victor"].map((p) => p.toLowerCase().trim()))
+);

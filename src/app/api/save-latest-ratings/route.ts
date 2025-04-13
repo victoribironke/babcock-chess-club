@@ -1,4 +1,4 @@
-import { PLAYERS } from "@/constants/constants";
+import { CHESS_COM_PLAYERS } from "@/constants/constants";
 import { getChesscomRatings } from "@/lib/requests";
 import { auth, db } from "@/services/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -12,7 +12,7 @@ export const GET = async () => {
   try {
     // Get stats from chess.com
     const chessComData = await Promise.all(
-      PLAYERS.map((p) => getChesscomRatings(p))
+      CHESS_COM_PLAYERS.map((p) => getChesscomRatings(p))
     );
 
     await signInWithEmailAndPassword(auth, email, password);
