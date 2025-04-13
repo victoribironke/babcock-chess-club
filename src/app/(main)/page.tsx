@@ -37,7 +37,7 @@ const Home = async () => {
 
   if (error) return <></>;
 
-  return <Homepage data={data!} />;
+  return <Homepage chesscom={data!.chesscom} lichess={data!.lichess} />;
 };
 
 export default Home;

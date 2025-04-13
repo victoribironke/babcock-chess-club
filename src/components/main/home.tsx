@@ -2,22 +2,50 @@ import { Ratings } from "@/types/general";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ChessCom from "./chess-com";
 import { formatDateTime } from "@/lib/utils";
+import Lichess from "./lichess";
 
-const Home = ({ data }: { data: Ratings }) => {
+const Home = ({
+  chesscom,
+  lichess,
+}: {
+  chesscom: Ratings;
+  lichess: Ratings;
+}) => {
   const chessComStats = {
-    rapid: data.ratings
+    rapid: chesscom.ratings
       .map((r) => ({
         username: r.username,
         rating: r.ratings.find((a) => a.title === "Rapid")?.rating || 0,
       }))
       .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
-    bullet: data.ratings
+    bullet: chesscom.ratings
       .map((r) => ({
         username: r.username,
         rating: r.ratings.find((a) => a.title === "Bullet")?.rating || 0,
       }))
       .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
-    blitz: data.ratings
+    blitz: chesscom.ratings
+      .map((r) => ({
+        username: r.username,
+        rating: r.ratings.find((a) => a.title === "Blitz")?.rating || 0,
+      }))
+      .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
+  };
+
+  const lichessStats = {
+    rapid: lichess.ratings
+      .map((r) => ({
+        username: r.username,
+        rating: r.ratings.find((a) => a.title === "Rapid")?.rating || 0,
+      }))
+      .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
+    bullet: lichess.ratings
+      .map((r) => ({
+        username: r.username,
+        rating: r.ratings.find((a) => a.title === "Bullet")?.rating || 0,
+      }))
+      .sort((a, b) => (a.rating < b.rating ? 1 : -1)),
+    blitz: lichess.ratings
       .map((r) => ({
         username: r.username,
         rating: r.ratings.find((a) => a.title === "Blitz")?.rating || 0,
@@ -39,20 +67,24 @@ const Home = ({ data }: { data: Ratings }) => {
           <TabsTrigger value="chesscom" className="w-full">
             Chess.com
           </TabsTrigger>
-          <TabsTrigger value="lichess" disabled>
-            Lichess
-          </TabsTrigger>
+          <TabsTrigger value="lichess">Lichess</TabsTrigger>
         </TabsList>
 
-        <p className="text-muted-foreground">
-          Updated at: {formatDateTime(data.updatedAt)}
-        </p>
-
         <TabsContent value="chesscom" className="w-full">
+          <p className="text-muted-foreground mb-8 w-full text-center">
+            Updated at: {formatDateTime(chesscom.updatedAt)}
+          </p>
+
           <ChessCom stats={chessComStats} />
         </TabsContent>
 
-        {/* <TabsContent value="lichess"></TabsContent> */}
+        <TabsContent value="lichess" className="w-full">
+          <p className="text-muted-foreground mb-8 w-full text-center">
+            Updated at: {formatDateTime(lichess.updatedAt)}
+          </p>
+
+          <Lichess stats={lichessStats} />
+        </TabsContent>
       </Tabs>
     </section>
   );

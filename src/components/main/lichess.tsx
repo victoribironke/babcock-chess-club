@@ -9,7 +9,7 @@ import {
 import { formatNumber } from "@/lib/utils";
 import { FullStats } from "@/types/general";
 
-const ChessCom = ({ stats }: { stats: FullStats }) => {
+const Lichess = ({ stats }: { stats: FullStats }) => {
   return (
     <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       <div className="w-full flex flex-col gap-4">
@@ -102,4 +102,4 @@ const ChessCom = ({ stats }: { stats: FullStats }) => {
   );
 };
 
-export default ChessCom;
+export default Lichess;

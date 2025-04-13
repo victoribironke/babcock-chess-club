@@ -1,5 +1,5 @@
-import { CHESS_COM_PLAYERS } from "@/constants/constants";
-import { getChesscomRatings } from "@/lib/requests";
+import { CHESS_COM_PLAYERS, LICHESS_PLAYERS } from "@/constants/constants";
+import { getChesscomRatings, getLichessRatings } from "@/lib/requests";
 import { auth, db } from "@/services/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
@@ -15,11 +15,22 @@ export const GET = async () => {
       CHESS_COM_PLAYERS.map((p) => getChesscomRatings(p))
     );
 
+    const lichessData = await Promise.all(
+      LICHESS_PLAYERS.map((p) => getLichessRatings(p))
+    );
+
     await signInWithEmailAndPassword(auth, email, password);
+
+    const updatedAt = new Date().toISOString();
 
     await setDoc(doc(db, "ratings", "chesscom"), {
       ratings: chessComData.map((d) => d.data),
-      updatedAt: new Date().toISOString(),
+      updatedAt,
+    });
+
+    await setDoc(doc(db, "ratings", "lichess"), {
+      ratings: lichessData.map((d) => d.data),
+      updatedAt,
     });
 
     return NextResponse.json({
