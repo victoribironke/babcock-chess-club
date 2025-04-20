@@ -3,14 +3,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ChessCom from "./chess-com";
 import { formatDateTime } from "@/lib/utils";
 import Lichess from "./lichess";
+import Link from "next/link";
+import { Github } from "lucide-react";
 
-const Home = ({
-  chesscom,
-  lichess,
-}: {
-  chesscom: Ratings;
-  lichess: Ratings;
-}) => {
+const Home = ({ chesscom, lichess }: { chesscom: Ratings; lichess: Ratings }) => {
   const chessComStats: FullStats = {
     rapid: [],
     bullet: [],
@@ -28,26 +24,20 @@ const Home = ({
 
     chessComStats.rapid.push({
       username: player_stats.username,
-      rating:
-        player_stats.ratings.find((a) => a.title === "Rapid")?.rating || 0,
-      played:
-        player_stats.ratings.find((a) => a.title === "Rapid")?.played || 0,
+      rating: player_stats.ratings.find((a) => a.title === "Rapid")?.rating || 0,
+      played: player_stats.ratings.find((a) => a.title === "Rapid")?.played || 0,
     });
 
     chessComStats.bullet.push({
       username: player_stats.username,
-      rating:
-        player_stats.ratings.find((a) => a.title === "Bullet")?.rating || 0,
-      played:
-        player_stats.ratings.find((a) => a.title === "Bullet")?.played || 0,
+      rating: player_stats.ratings.find((a) => a.title === "Bullet")?.rating || 0,
+      played: player_stats.ratings.find((a) => a.title === "Bullet")?.played || 0,
     });
 
     chessComStats.blitz.push({
       username: player_stats.username,
-      rating:
-        player_stats.ratings.find((a) => a.title === "Blitz")?.rating || 0,
-      played:
-        player_stats.ratings.find((a) => a.title === "Blitz")?.played || 0,
+      rating: player_stats.ratings.find((a) => a.title === "Blitz")?.rating || 0,
+      played: player_stats.ratings.find((a) => a.title === "Blitz")?.played || 0,
     });
   }
 
@@ -56,26 +46,20 @@ const Home = ({
 
     lichessStats.rapid.push({
       username: player_stats.username,
-      rating:
-        player_stats.ratings.find((a) => a.title === "Rapid")?.rating || 0,
-      played:
-        player_stats.ratings.find((a) => a.title === "Rapid")?.played || 0,
+      rating: player_stats.ratings.find((a) => a.title === "Rapid")?.rating || 0,
+      played: player_stats.ratings.find((a) => a.title === "Rapid")?.played || 0,
     });
 
     lichessStats.bullet.push({
       username: player_stats.username,
-      rating:
-        player_stats.ratings.find((a) => a.title === "Bullet")?.rating || 0,
-      played:
-        player_stats.ratings.find((a) => a.title === "Bullet")?.played || 0,
+      rating: player_stats.ratings.find((a) => a.title === "Bullet")?.rating || 0,
+      played: player_stats.ratings.find((a) => a.title === "Bullet")?.played || 0,
     });
 
     lichessStats.blitz.push({
       username: player_stats.username,
-      rating:
-        player_stats.ratings.find((a) => a.title === "Blitz")?.rating || 0,
-      played:
-        player_stats.ratings.find((a) => a.title === "Blitz")?.played || 0,
+      rating: player_stats.ratings.find((a) => a.title === "Blitz")?.rating || 0,
+      played: player_stats.ratings.find((a) => a.title === "Blitz")?.played || 0,
     });
   }
 
@@ -84,6 +68,14 @@ const Home = ({
       <h1 className="font-semibold text-xl md:text-2xl lg:text-3xl w-full text-center">
         Leaderboard
       </h1>
+
+      <Link
+        href="https://github.com/victoribironke/babcock-chess-club"
+        target="_blank"
+        className="w-full flex items-center justify-center"
+      >
+        <Github />
+      </Link>
 
       <Tabs
         defaultValue="chesscom"
