@@ -38,7 +38,6 @@ export const CHESS_COM_PLAYERS = Array.from(
       "lemuel_dynasty1",
       "rook_boss",
       "Tasamada",
-      "P_Einstein",
       "deb_pemi"
     ].map((p) => p.toLowerCase().trim())
   )
@@ -68,6 +67,7 @@ export const LICHESS_PLAYERS = Array.from(
       "Activeeeee",
       "DannyLaw",
       "lemuel_dynasty",
+      "P_Einstein"
     ].map((p) => p.toLowerCase().trim())
   )
 );
