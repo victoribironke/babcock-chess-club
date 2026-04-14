@@ -38,7 +38,8 @@ export const CHESS_COM_PLAYERS = Array.from(
       "lemuel_dynasty1",
       "rook_boss",
       "Tasamada",
-      "deb_pemi"
+      "deb_pemi",
+      "P_einsteinn"
     ].map((p) => p.toLowerCase().trim())
   )
 );
